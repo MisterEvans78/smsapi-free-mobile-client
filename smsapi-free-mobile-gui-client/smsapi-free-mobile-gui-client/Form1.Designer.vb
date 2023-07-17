@@ -42,9 +42,9 @@ Partial Class Form1
         Label1.Font = New Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point)
         Label1.Location = New Point(12, 9)
         Label1.Name = "Label1"
-        Label1.Size = New Size(381, 30)
+        Label1.Size = New Size(269, 30)
         Label1.TabIndex = 0
-        Label1.Text = "Envoi de SMS via l'API de Free Mobile"
+        Label1.Text = "Envoi de SMS Free Mobile"
         ' 
         ' Label2
         ' 
@@ -136,7 +136,7 @@ Partial Class Form1
         Name = "Form1"
         ShowIcon = False
         StartPosition = FormStartPosition.CenterScreen
-        Text = "Envoi de SMS via l'API de Free Mobile"
+        Text = "Envoi de SMS Free Mobile"
         ContextMenuStrip1.ResumeLayout(False)
         ResumeLayout(False)
         PerformLayout()
