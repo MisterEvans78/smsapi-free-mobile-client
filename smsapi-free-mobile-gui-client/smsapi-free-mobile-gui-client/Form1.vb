@@ -4,6 +4,7 @@ Imports System.Text
 Imports System.Text.Json
 
 Public Class Form1
+    Private Const _url As String = "https://smsapi.free-mobile.fr/sendmsg"
     Private Async Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         UseWaitCursor = True
         Try
@@ -13,7 +14,7 @@ Public Class Form1
 
             Dim serializedParameters As New StringContent(JsonSerializer.Serialize(parameters), Encoding.UTF8, "application/json")
 
-            Dim response = Await client.PostAsync("https://smsapi.free-mobile.fr/sendmsg", serializedParameters)
+            Dim response = Await client.PostAsync(_url, serializedParameters)
 
             ' Icone de la messagebox
             Dim msgBoxIcon As MessageBoxIcon
