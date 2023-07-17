@@ -102,7 +102,7 @@ Partial Class Form1
         Button1.Name = "Button1"
         Button1.Size = New Size(149, 23)
         Button1.TabIndex = 7
-        Button1.Text = "Valider"
+        Button1.Text = "Envoyer"
         Button1.UseVisualStyleBackColor = True
         ' 
         ' ContextMenuStrip1
