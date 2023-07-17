@@ -92,13 +92,13 @@ Partial Class Form1
         TextBox3.Location = New Point(200, 158)
         TextBox3.Multiline = True
         TextBox3.Name = "TextBox3"
-        TextBox3.Size = New Size(233, 76)
+        TextBox3.Size = New Size(233, 115)
         TextBox3.TabIndex = 6
         ' 
         ' Button1
         ' 
         Button1.Enabled = False
-        Button1.Location = New Point(168, 251)
+        Button1.Location = New Point(168, 293)
         Button1.Name = "Button1"
         Button1.Size = New Size(149, 23)
         Button1.TabIndex = 7
@@ -121,7 +121,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(484, 286)
+        ClientSize = New Size(484, 328)
         ContextMenuStrip = ContextMenuStrip1
         Controls.Add(Button1)
         Controls.Add(TextBox3)

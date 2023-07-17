@@ -5,6 +5,7 @@ Imports System.Text.Json
 
 Public Class Form1
     Private Const _url As String = "https://smsapi.free-mobile.fr/sendmsg"
+
     Private Async Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Button1.Enabled = False
         UseWaitCursor = True
@@ -74,8 +75,14 @@ Public Class Form1
     End Sub
 
     Private Sub AProposToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AProposToolStripMenuItem.Click
+        Dim versionString As String
+        If (Environment.GetEnvironmentVariable("ClickOnce_IsNetworkDeployed")?.ToLower() = "true") Then
+            versionString = Environment.GetEnvironmentVariable("ClickOnce_CurrentVersion")
+        Else
+            versionString = My.Application.Info.Version.ToString()
+        End If
         Dim content As New StringBuilder()
-        content.AppendLine($"Version : {My.Application.Info.Version}")
+        content.AppendLine($"Version : {versionString}")
         content.AppendLine("Permet d'envoyer un SMS via l'API fourni par Free Mobile.")
         content.AppendLine()
         content.AppendLine("L'option « Notification par SMS » doit être activé sur votre forfait mobile Free.")
