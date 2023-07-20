@@ -75,14 +75,8 @@ Public Class Form1
     End Sub
 
     Private Sub AProposToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AProposToolStripMenuItem.Click
-        Dim versionString As String
-        If (Environment.GetEnvironmentVariable("ClickOnce_IsNetworkDeployed")?.ToLower() = "true") Then
-            versionString = Environment.GetEnvironmentVariable("ClickOnce_CurrentVersion")
-        Else
-            versionString = My.Application.Info.Version.ToString()
-        End If
         Dim content As New StringBuilder()
-        content.AppendLine($"Version : {versionString}")
+        content.AppendLine($"Version : {GetVersionString()}")
         content.AppendLine("Permet d'envoyer un SMS via l'API fourni par Free Mobile.")
         content.AppendLine()
         content.AppendLine("L'option « Notification par SMS » doit être activé sur votre forfait mobile Free.")
