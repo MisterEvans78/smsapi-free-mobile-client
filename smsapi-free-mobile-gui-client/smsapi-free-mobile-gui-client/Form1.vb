@@ -7,7 +7,7 @@ Public Class Form1
     Private Const _url As String = "https://smsapi.free-mobile.fr/sendmsg"
 
     Private Async Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Button1.Enabled = False
+        EnableControls(False)
         UseWaitCursor = True
         Try
             Dim client As New HttpClient()
@@ -51,7 +51,7 @@ Public Class Form1
             MessageBox.Show(ex.Message, "Erreur")
         End Try
         UseWaitCursor = False
-        Button1.Enabled = True
+        EnableControls()
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
@@ -72,6 +72,13 @@ Public Class Form1
         Else
             Button1.Enabled = False
         End If
+    End Sub
+
+    Private Sub EnableControls(Optional enable As Boolean = True)
+        Button1.Enabled = enable
+        TextBox1.Enabled = enable
+        TextBox2.Enabled = enable
+        TextBox3.Enabled = enable
     End Sub
 
     Private Sub AProposToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AProposToolStripMenuItem.Click
