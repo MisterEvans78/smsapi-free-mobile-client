@@ -34,6 +34,7 @@ Partial Class Form1
         Button1 = New Button()
         ContextMenuStrip1 = New ContextMenuStrip(components)
         AProposToolStripMenuItem = New ToolStripMenuItem()
+        Button2 = New Button()
         ContextMenuStrip1.SuspendLayout()
         SuspendLayout()
         ' 
@@ -118,12 +119,22 @@ Partial Class Form1
         AProposToolStripMenuItem.Size = New Size(122, 22)
         AProposToolStripMenuItem.Text = "A propos"
         ' 
+        ' Button2
+        ' 
+        Button2.Location = New Point(416, 12)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(56, 23)
+        Button2.TabIndex = 8
+        Button2.Text = "Aide"
+        Button2.UseVisualStyleBackColor = True
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(484, 328)
         ContextMenuStrip = ContextMenuStrip1
+        Controls.Add(Button2)
         Controls.Add(Button1)
         Controls.Add(TextBox3)
         Controls.Add(TextBox2)
@@ -153,4 +164,5 @@ Partial Class Form1
     Friend WithEvents Button1 As Button
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents AProposToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button2 As Button
 End Class

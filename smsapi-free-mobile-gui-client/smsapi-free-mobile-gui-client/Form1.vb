@@ -82,11 +82,21 @@ Public Class Form1
     End Sub
 
     Private Sub AProposToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AProposToolStripMenuItem.Click
-        Dim content As New StringBuilder()
-        content.AppendLine($"Version : {GetVersionString()}")
-        content.AppendLine("Permet d'envoyer un SMS via l'API fourni par Free Mobile.")
-        content.AppendLine()
-        content.AppendLine("L'option « Notification par SMS » doit être activé sur votre forfait mobile Free.")
-        MessageBox.Show(content.ToString())
+        With New StringBuilder()
+            .AppendLine($"Version : {GetVersionString()}")
+            .AppendLine("Permet d'envoyer un SMS via l'API fourni par Free Mobile.")
+            .AppendLine()
+            .AppendLine("L'option « Notifications par SMS » doit être activé sur votre forfait mobile Free.")
+            MessageBox.Show(.ToString())
+        End With
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        With New StringBuilder()
+            .AppendLine("Pour envoyer des SMS via ce logiciel, vous devez activer l'option « Notifications par SMS » sur votre forfait Free Mobile.")
+            .AppendLine("Une clé d'identification vous sera fournie une fois l'option activée.")
+            .AppendLine("Dans le champ « Utilisateur », il faut saisir votre identifiant Free Mobile (celui que vous utilisez pour accéder à votre espace abonné.")
+            MessageBox.Show(.ToString(), "Aide", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End With
     End Sub
 End Class
