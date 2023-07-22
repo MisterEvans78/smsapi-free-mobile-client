@@ -26,24 +26,7 @@ Public Class Form1
                     msgBoxIcon = MessageBoxIcon.Information
             End Select
 
-            ' Texte de la messagebox
-            Dim message As String
-            Select Case statusCode
-                Case HttpStatusCode.OK
-                    message = "Le SMS a été envoyé sur votre mobile."
-                Case HttpStatusCode.BadRequest
-                    message = "Un des paramètres obligatoires est manquant."
-                Case HttpStatusCode.PaymentRequired
-                    message = "Trop de SMS ont été envoyés en trop peu de temps."
-                Case HttpStatusCode.Forbidden
-                    message = "Le service n'est pas activé sur l'espace abonné, ou login / clé incorrect."
-                Case HttpStatusCode.InternalServerError
-                    message = "Erreur côté serveur. Veuillez réessayer ultérieurement."
-                Case Else
-                    message = $"Erreur HTTP {CInt(statusCode)} ({statusCode})."
-            End Select
-
-            MessageBox.Show(message, "Message", MessageBoxButtons.OK, msgBoxIcon)
+            MessageBox.Show(DetermineMessage(statusCode), "Message", MessageBoxButtons.OK, msgBoxIcon)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Erreur")
         End Try
@@ -84,4 +67,21 @@ Public Class Form1
             MessageBox.Show(.ToString(), "Aide", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End With
     End Sub
+
+    Private Function DetermineMessage(statusCode As HttpStatusCode) As String
+        Select Case statusCode
+            Case HttpStatusCode.OK
+                Return "Le SMS a été envoyé sur votre mobile."
+            Case HttpStatusCode.BadRequest
+                Return "Un des paramètres obligatoires est manquant."
+            Case HttpStatusCode.PaymentRequired
+                Return "Trop de SMS ont été envoyés en trop peu de temps."
+            Case HttpStatusCode.Forbidden
+                Return "Le service n'est pas activé sur l'espace abonné, ou login / clé incorrect."
+            Case HttpStatusCode.InternalServerError
+                Return "Erreur côté serveur. Veuillez réessayer ultérieurement."
+            Case Else
+                Return $"Erreur HTTP {CInt(statusCode)} ({statusCode})."
+        End Select
+    End Function
 End Class
