@@ -60,19 +60,7 @@ Public Class Form1
         EnableControls()
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        CheckTextBoxAreFilled()
-    End Sub
-
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
-        CheckTextBoxAreFilled()
-    End Sub
-
-    Private Sub TextBox3_TextChanged(sender As Object, e As EventArgs) Handles TextBox3.TextChanged
-        CheckTextBoxAreFilled()
-    End Sub
-
-    Private Sub CheckTextBoxAreFilled()
+    Private Sub TextBoxes_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged, TextBox2.TextChanged, TextBox3.TextChanged
         If TextBox1.Text <> String.Empty AndAlso TextBox2.Text <> String.Empty AndAlso TextBox3.Text <> String.Empty Then
             Button1.Enabled = True
         Else
