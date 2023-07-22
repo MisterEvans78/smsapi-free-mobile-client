@@ -6,6 +6,12 @@ Imports System.Text.Json
 Public Class Form1
     Private Const _url As String = "https://smsapi.free-mobile.fr/sendmsg"
 
+#If DEBUG Then
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Text += " (Debug)"
+    End Sub
+#End If
+
     Private Async Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         EnableControls(False)
         UseWaitCursor = True
@@ -95,7 +101,7 @@ Public Class Form1
         With New StringBuilder()
             .AppendLine("Pour envoyer des SMS via ce logiciel, vous devez activer l'option « Notifications par SMS » sur votre forfait Free Mobile.")
             .AppendLine("Une clé d'identification vous sera fournie une fois l'option activée.")
-            .AppendLine("Dans le champ « Utilisateur », il faut saisir votre identifiant Free Mobile (celui que vous utilisez pour accéder à votre espace abonné.")
+            .AppendLine("Dans le champ « Utilisateur », il faut saisir votre identifiant Free Mobile (celui que vous utilisez pour accéder à votre espace abonné).")
             MessageBox.Show(.ToString(), "Aide", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End With
     End Sub
