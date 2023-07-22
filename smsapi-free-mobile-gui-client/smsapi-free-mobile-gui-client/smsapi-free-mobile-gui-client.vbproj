@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <RootNamespace>smsapi_free_mobile_gui_client</RootNamespace>
+    <RootNamespace>SmsApiFreeMobile.GuiClient</RootNamespace>
     <StartupObject>Sub Main</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
@@ -26,6 +26,10 @@
     <Import Include="System.Data" />
     <Import Include="System.Drawing" />
     <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\smsapi-free-mobile\smsapi-free-mobile\smsapi-free-mobile.vbproj" />
   </ItemGroup>
 
   <ItemGroup>

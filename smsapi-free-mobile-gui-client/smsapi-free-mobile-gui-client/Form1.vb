@@ -1,11 +1,7 @@
 ﻿Imports System.Net
-Imports System.Net.Http
 Imports System.Text
-Imports System.Text.Json
 
 Public Class Form1
-    Private Const _url As String = "https://smsapi.free-mobile.fr/sendmsg"
-
 #If DEBUG Then
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Text += " (Debug)"
@@ -16,17 +12,12 @@ Public Class Form1
         EnableControls(False)
         UseWaitCursor = True
         Try
-            Dim client As New HttpClient()
-
-            Dim parameters As New SmsApiParameters With {.User = TextBox1.Text, .Pass = TextBox2.Text, .Msg = TextBox3.Text}
-
-            Dim serializedParameters As New StringContent(JsonSerializer.Serialize(parameters), Encoding.UTF8, "application/json")
-
-            Dim response = Await client.PostAsync(_url, serializedParameters)
+            Dim smsApi As New SmsApi() With {.User = TextBox1.Text, .Pass = TextBox2.Text, .Msg = TextBox3.Text}
+            Dim statusCode As HttpStatusCode = Await smsApi.CallApiAsync()
 
             ' Icone de la messagebox
             Dim msgBoxIcon As MessageBoxIcon
-            Select Case response.StatusCode
+            Select Case statusCode
                 Case >= HttpStatusCode.BadRequest
                     msgBoxIcon = MessageBoxIcon.Exclamation
                 Case >= HttpStatusCode.InternalServerError
@@ -37,7 +28,7 @@ Public Class Form1
 
             ' Texte de la messagebox
             Dim message As String
-            Select Case response.StatusCode
+            Select Case statusCode
                 Case HttpStatusCode.OK
                     message = "Le SMS a été envoyé sur votre mobile."
                 Case HttpStatusCode.BadRequest
@@ -49,7 +40,7 @@ Public Class Form1
                 Case HttpStatusCode.InternalServerError
                     message = "Erreur côté serveur. Veuillez réessayer ultérieurement."
                 Case Else
-                    message = Await response.Content.ReadAsStringAsync()
+                    message = $"Erreur HTTP {CInt(statusCode)} ({statusCode})."
             End Select
 
             MessageBox.Show(message, "Message", MessageBoxButtons.OK, msgBoxIcon)
