@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Form1))
         Label1 = New Label()
         Label2 = New Label()
         Label3 = New Label()
@@ -132,9 +133,9 @@ Partial Class Form1
         Controls.Add(Label2)
         Controls.Add(Label1)
         FormBorderStyle = FormBorderStyle.FixedSingle
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         MaximizeBox = False
         Name = "Form1"
-        ShowIcon = False
         StartPosition = FormStartPosition.CenterScreen
         Text = "Envoi de SMS Free Mobile"
         ContextMenuStrip1.ResumeLayout(False)

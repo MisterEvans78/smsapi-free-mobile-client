@@ -15,7 +15,12 @@
     <FileVersion>$(AssemblyVersion)</FileVersion>
     <Description>Envoi de SMS Free Mobile</Description>
     <Version>$(AssemblyVersion)</Version>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />
