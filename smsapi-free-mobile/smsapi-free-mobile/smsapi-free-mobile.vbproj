@@ -3,6 +3,11 @@
   <PropertyGroup>
     <RootNamespace>SmsApiFreeMobile</RootNamespace>
     <TargetFramework>net6.0</TargetFramework>
+    <Authors>MisterEvans78</Authors>
+    <Product>SmsApiFreeMobile</Product>
+    <Copyright>Copyright 2023 $(Authors)</Copyright>
+    <Title>SmsApiFreeMobile</Title>
+    <Version>$(AssemblyVersion)</Version>
   </PropertyGroup>
 
 </Project>
