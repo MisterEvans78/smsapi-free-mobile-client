@@ -8,8 +8,8 @@
     <Copyright>Copyright 2023 $(Authors)</Copyright>
     <Title>SmsApiFreeMobile</Title>
     <AssemblyVersion>1.0.1.0</AssemblyVersion>
-	<FileVersion>$(AssemblyVersion)</FileVersion>
-	<Version>$(AssemblyVersion)</Version>
+    <FileVersion>$(AssemblyVersion)</FileVersion>
+    <Version>$(AssemblyVersion)</Version>
   </PropertyGroup>
 
 </Project>
