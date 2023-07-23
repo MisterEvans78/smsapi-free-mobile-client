@@ -42,4 +42,21 @@ Public Class SmsApi
 
         Return response.StatusCode
     End Function
+
+    Public Shared Function DetermineMessage(statusCode As HttpStatusCode) As String
+        Select Case statusCode
+            Case HttpStatusCode.OK
+                Return "Le SMS a été envoyé sur votre mobile."
+            Case HttpStatusCode.BadRequest
+                Return "Un des paramètres obligatoires est manquant."
+            Case HttpStatusCode.PaymentRequired
+                Return "Trop de SMS ont été envoyés en trop peu de temps."
+            Case HttpStatusCode.Forbidden
+                Return "Le service n'est pas activé sur l'espace abonné, ou login / clé incorrect."
+            Case HttpStatusCode.InternalServerError
+                Return "Erreur côté serveur. Veuillez réessayer ultérieurement."
+            Case Else
+                Return $"Erreur HTTP {CInt(statusCode)} ({statusCode})."
+        End Select
+    End Function
 End Class

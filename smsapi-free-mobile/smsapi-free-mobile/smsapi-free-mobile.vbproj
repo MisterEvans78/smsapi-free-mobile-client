@@ -7,7 +7,9 @@
     <Product>SmsApiFreeMobile</Product>
     <Copyright>Copyright 2023 $(Authors)</Copyright>
     <Title>SmsApiFreeMobile</Title>
-    <Version>$(AssemblyVersion)</Version>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+	<FileVersion>$(AssemblyVersion)</FileVersion>
+	<Version>$(AssemblyVersion)</Version>
   </PropertyGroup>
 
 </Project>

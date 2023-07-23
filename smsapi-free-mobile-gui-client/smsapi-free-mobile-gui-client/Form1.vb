@@ -12,8 +12,8 @@ Public Class Form1
         EnableControls(False)
         UseWaitCursor = True
         Try
-            Dim smsApi As New SmsApi() With {.User = TextBox1.Text, .Pass = TextBox2.Text, .Msg = TextBox3.Text}
-            Dim statusCode As HttpStatusCode = Await smsApi.CallApiAsync()
+            Dim sms As New SmsApi() With {.User = TextBox1.Text, .Pass = TextBox2.Text, .Msg = TextBox3.Text}
+            Dim statusCode As HttpStatusCode = Await sms.CallApiAsync()
 
             ' Icone de la messagebox
             Dim msgBoxIcon As MessageBoxIcon
@@ -26,7 +26,7 @@ Public Class Form1
                     msgBoxIcon = MessageBoxIcon.Information
             End Select
 
-            MessageBox.Show(DetermineMessage(statusCode), "Message", MessageBoxButtons.OK, msgBoxIcon)
+            MessageBox.Show(SmsApi.DetermineMessage(statusCode), "Message", MessageBoxButtons.OK, msgBoxIcon)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Erreur")
         End Try
@@ -67,21 +67,4 @@ Public Class Form1
             MessageBox.Show(.ToString(), "Aide", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End With
     End Sub
-
-    Private Function DetermineMessage(statusCode As HttpStatusCode) As String
-        Select Case statusCode
-            Case HttpStatusCode.OK
-                Return "Le SMS a été envoyé sur votre mobile."
-            Case HttpStatusCode.BadRequest
-                Return "Un des paramètres obligatoires est manquant."
-            Case HttpStatusCode.PaymentRequired
-                Return "Trop de SMS ont été envoyés en trop peu de temps."
-            Case HttpStatusCode.Forbidden
-                Return "Le service n'est pas activé sur l'espace abonné, ou login / clé incorrect."
-            Case HttpStatusCode.InternalServerError
-                Return "Erreur côté serveur. Veuillez réessayer ultérieurement."
-            Case Else
-                Return $"Erreur HTTP {CInt(statusCode)} ({statusCode})."
-        End Select
-    End Function
 End Class
