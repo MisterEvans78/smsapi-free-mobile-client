@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>SmsApiFreeMobile.CliClient</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Title>Envoi de SMS Free Mobile CLI</Title>
+    <Authors>MisterEvans78</Authors>
+    <Product>$(Title)</Product>
+    <Copyright>Copyright 2023 $(Authors)</Copyright>
+    <FileVersion>$(AssemblyVersion)</FileVersion>
+    <Version>$(AssemblyVersion)</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\smsapi-free-mobile\smsapi-free-mobile\smsapi-free-mobile.vbproj" />
+  </ItemGroup>
+
+</Project>
