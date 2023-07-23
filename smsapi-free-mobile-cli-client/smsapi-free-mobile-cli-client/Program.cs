@@ -6,7 +6,7 @@ namespace SmsApiFreeMobile.CliClient
     {
         static async Task Main(string[] args)
         {
-            string user, pass, msg;
+            string user, pass, msg, returnMessage;
             if (args.Length > 2)
             {
                 user = args[0];
@@ -26,7 +26,21 @@ namespace SmsApiFreeMobile.CliClient
             SmsApi sms = new(user, pass, msg);
             HttpStatusCode statusCode = await sms.CallApiAsync();
 
-            Console.WriteLine(SmsApi.DetermineMessage(statusCode));
+            switch (statusCode)
+            {
+                case >= HttpStatusCode.InternalServerError:
+                    returnMessage = "[ERROR] ";
+                    break;
+                case >= HttpStatusCode.BadRequest:
+                    returnMessage = "[WARN] ";
+                    break;
+                default:
+                    returnMessage = "[INFO] ";
+                    break;
+            }
+
+            returnMessage += SmsApi.DetermineMessage(statusCode);
+            Console.WriteLine(returnMessage);
         }
     }
 }

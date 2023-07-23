@@ -10,6 +10,7 @@
     <Authors>MisterEvans78</Authors>
     <Product>$(Title)</Product>
     <Copyright>Copyright 2023 $(Authors)</Copyright>
+	<AssemblyVersion>1.0.0.1</AssemblyVersion>
     <FileVersion>$(AssemblyVersion)</FileVersion>
     <Version>$(AssemblyVersion)</Version>
   </PropertyGroup>

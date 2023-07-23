@@ -18,10 +18,10 @@ Public Class Form1
             ' Icone de la messagebox
             Dim msgBoxIcon As MessageBoxIcon
             Select Case statusCode
-                Case >= HttpStatusCode.BadRequest
-                    msgBoxIcon = MessageBoxIcon.Exclamation
                 Case >= HttpStatusCode.InternalServerError
                     msgBoxIcon = MessageBoxIcon.Error
+                Case >= HttpStatusCode.BadRequest
+                    msgBoxIcon = MessageBoxIcon.Exclamation
                 Case Else
                     msgBoxIcon = MessageBoxIcon.Information
             End Select
